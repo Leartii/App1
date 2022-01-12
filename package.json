@@ -20,5 +20,6 @@
 		"express",
 		"freecodecamp"
 	],
+	"engines": {"node": "16.13.0"},
 	"license": "MIT"
 }
