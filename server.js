@@ -20,8 +20,11 @@ app.get("/", function (req, res) {
 
 app.get("/api/:date?", (req,res) => {
   console.log("hit , req.params.date: "+req.params.date);
-  console.log(typeof req.params.date)
-  var dat = new Date(req.params.date);
+  if(isNaN(req.params.date)){
+    var dat = new Date((new Date(req.params.date)).getTime());
+  } else{
+    var dat = new Date(parseInt(req.params.date));
+  }
   console.log("dat: "+dat)
   if(req.params.date !== undefined){
     if(isNaN(dat.getTime())){
