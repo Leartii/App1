@@ -31,10 +31,10 @@ app.get("/api/:date?", (req,res) => {
       res.json({error : "Invalid Date"});
     }
     else{
-      res.json({"unix" : dat.getTime(), "utc" : dat});
+      res.json({"unix" : dat.getTime(), "utc" : dat.toUTCString()});
     }
   }else{
-    res.json({"unix" : Date.parse(new Date()), "utc" : new Date()});
+    res.json({"unix" : Date.parse(new Date()), "utc" : (new Date()).toUTCString()});
   }
 });
 
